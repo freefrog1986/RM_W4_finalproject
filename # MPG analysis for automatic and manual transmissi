@@ -7,23 +7,40 @@ exploring the relationship between a set of variables and miles per gallon (MPG)
 ### Exploratory Data Analyses
 ( do some exploratory data analyses ) 
 First, let's do some exploratory data analyses.
+Load ggplot2, set working directory.
 ```{r}
 library(ggplot2)
-setwd('/Users/freefrog/Studing/DataScience/gitrepo/EDA_W4_finalproject')
+setwd('/Users/freefrog/Studing/DataScience/gitrepo/RM_W4_finalproject')
 rm(list = ls())
-```{}
-
+```
+Have a glance of the data.
 ```{r}
 data('mtcars')
 head(mtcars)
 ```
-There are 11 variables. We care about mpg and am, which stand for Miles/(US) gallon and Transmission (0=automatic, 1=manual)
+There are 11 variables. We only care about mpg and am, which stand for Miles/(US) gallon and Transmission (0=automatic, 1=manual), we can make a boxplot which can be found in Apendix Figure-1.
 ```{r}
+df<-mtcars
+png(filename = "plot1.png", width = 560, height = 480)
+g<-ggplot(df,aes(am,mpg))
+g+geom_boxplot(aes(group=am),colour = "#3366FF")+xlab("Transmission") +ylab("Miles/(US) gallon") +ggtitle("Figure-1: Relationship between MPG and Transmission")
+dev.off()
+```
+### Model Selection
+####Model 1: liner regression
+This figure can be find in Apendix Figure-2
+```{r}
+png(filename = "plot2.png", width = 560, height = 480)
+with(df, plot(df$mpg,df$am, xlab = "Miles/(US) gallon", ylab = "Transmission", main = 'Figure-2 liner regression'))
+model<-lm(am~mpg,data=df)
+abline(model, lwd = 1, col = "skyblue2")
+dev.off()
 
 ```
+####Model 1: logistic regression
 
 
-### Model Selection
+
 Did the student fit multiple models and detail their strategy for model selection
 (interpret the coefficients correctly)
 
@@ -43,3 +60,5 @@ Did the student answer the questions of interest or detail why the question(s) i
 Did the student quantify the uncertainty in their conclusions and/or perform an inference correctly?
 
 ### Appendix
+![](/Users/freefrog/Studing/DataScience/gitrepo/RM_W4_finalproject/plot1.png)
+![](/Users/freefrog/Studing/DataScience/gitrepo/RM_W4_finalproject/plot2.png)
