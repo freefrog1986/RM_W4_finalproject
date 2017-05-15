@@ -1,0 +1,45 @@
+# MPG analysis for automatic and manual transmissions
+
+### Summary
+( Did the report include an executive summary )
+exploring the relationship between a set of variables and miles per gallon (MPG) (outcome). They are particularly interested in the following two questions:
+
+### Exploratory Data Analyses
+( do some exploratory data analyses ) 
+First, let's do some exploratory data analyses.
+```{r}
+library(ggplot2)
+setwd('/Users/freefrog/Studing/DataScience/gitrepo/EDA_W4_finalproject')
+rm(list = ls())
+```{}
+
+```{r}
+data('mtcars')
+head(mtcars)
+```
+There are 11 variables. We care about mpg and am, which stand for Miles/(US) gallon and Transmission (0=automatic, 1=manual)
+```{r}
+
+```
+
+
+### Model Selection
+Did the student fit multiple models and detail their strategy for model selection
+(interpret the coefficients correctly)
+
+### Residual and Diagnostics
+Did the student do a residual plot and some diagnostics
+
+### Answer the Questions
+Did the student answer the questions of interest or detail why the question(s) is (are) not answerable
+
+#### Question1
+“Is an automatic or manual transmission better for MPG?”
+
+#### Question2
+"Quantify the MPG difference between automatic and manual transmissions"
+
+### Conclusions
+Did the student quantify the uncertainty in their conclusions and/or perform an inference correctly?
+
+### Appendix
