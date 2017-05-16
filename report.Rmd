@@ -1,0 +1,47 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+# MPG analysis for Automatic and Manual Transmissions
+## Executive Summary
+This report exploring the relationship between miles per gallon (MPG) and transsion type aim to answer the questions below:
+
+* "Is an automatic or manual transmission better for MPG"
+* "Quantify the MPG difference between automatic and manual transmissions"
+
+## Data Exploration
+Load data.
+```{r}
+library(ggplot2)
+data('mtcars')
+```
+There are 11 variables. We only care about mpg and am, which stand for Miles/(US) gallon and Transmission (0=automatic, 1=manual), we can make a boxplot(Apendix-1) to see the difference.
+```{r}
+df<-mtcars
+df$am <- as.factor(df$am)
+g<-ggplot(df,aes(am,mpg))
+g+geom_boxplot(aes(group=am),colour = "#3366FF")+xlab("Transmission") +ylab("Miles/(US) gallon") +ggtitle("MPG difference between auto and maunal Transmission")
+```
+It seems that manual transmissionis have higher mpg than automatic transmissions.
+
+## Regression Analysis
+```{r}
+model1 <- lm(mpg ~ am -1, df)
+model2 <- lm(mpg ~ wt + am -1, df)
+model3 <- lm(mpg ~ wt + qsec + am -1, df)
+model4 <- lm(mpg ~ wt + qsec + cyl + am -1, df)
+anova(model1, model2, model3, model4)
+```
+We create 4 diffrent models, model 1~4, of which model 1 is the basic model with mpg as a function of am. we add wt, qsec, cyl, into model 2, 3, 4. anova shows that adding wt, qsec is very signicant however adding cyl(and others) is not. so we choose model 3, let's see the following coefficients:
+```{r}
+coef <- summary(model3)$coef
+coef
+```
+
+## Conclusion
+“Is an automatic or manual transmission better for MPG?”   
+We cannot answer the question cause there are other significant vriables affect the mpg beside transmission.
+
+"Quantify the MPG difference between automatic and manual transmissions"   
+Taking into account qsec and wt, the diffence in mpg between an automatic and a manual is only 2.5 mpg.

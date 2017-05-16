@@ -1,0 +1,323 @@
+qt(df=24,p=0.95,lower.tail=F)
+s<-50
+s/sqrt(25)
+mu-126
+-25/50
+t<--2.5
+t^2/(t^2+24)
+126+c(-1,1)*qt(df=24,0.95)*s/sqrt(25)
+t*s/sqrt(25)
+qt(df=24,0.95)*s/sqrt(25)
+qt(df=24,0.975)*s/sqrt(25)
+126+c(-1,1)*qt(df=24,0.975)*s/sqrt(25)
+pre<-c(8,7,6,9,10,5,7,11,8,7)
+post<-c(5,6,4,6,5,3,2,9,4,4)
+mean(pre)
+mean(post)
+4.8-7.4
+qt(df=9,p=0.95,lower.tail=f)
+qt(df=9,p=0.95,lower.tail="F")
+qt(df=9,p=0.95,lower.tail=F)
+1.33/sqrt(9)
+1.33/sqrt(10)
+-3/0.4205829
+sd(pre)
+sd(post)
+sqrt(sd(pre)^2+sd(post)#
+^2)
+-3/2.649948
+-3/1.33
+4.8+c(-1,1)*qt(df=9,p=0.975)*1.33/sqrt(10)
+3+c(-1,1)*qt(df=9,p=0.975)*1.33/sqrt(10)
+qt(df=18+14-2,p=0.975)
+(33.5-31.2)/sqrt(8.89^2/6+10.16^2/5)
+qt(df=9,p=0.975)
+qt(df=16,p=0.95)
+qt(df=16,p=0.025)
+qt(df=6,p=0.025)
+qt(df=5,p=0.025)
+ss1<-481
+ss2<-322
+n1<-207
+n2<-220
+sp<-sqrt((ss1+ss2)/(n1+n2-2))
+sp^2
+x1<-35.8
+x2<-31.6
+(x1-x2)/sqrt(sp^2/n1+sp^2/n2)
+t<-(x1-x2)/sqrt(sp^2/n1+sp^2/n2)
+tc<-qt(df=n1+n2-2,p=0.995)
+tc
+qt(df=24,p=0.025)
+qt(df=24,p=0.05)
+qt(df=23,p=0.05)
+qt(df=18,p=0.025)
+3/(0/94/sqrt(20))
+3/(0.94/sqrt(20))
+3/(0.94/sqrt(5))
+3/(0.94/sqrt(10))
+3/0.94
+3/2.33
+t<-3/0.94
+t^2/(t^2+18)
+1.7/sqrt(0.13/18+0.13/25)
+qt(df=18+25-2,p=0.95)
+1/sqrt(5.1/52+5.1/57)
+qt(df=52+57-2,p=0.95)
+qt(df=52+57-2,p=0.975)
+1/1.29
+xi<-c(2,-3,5,4,7)
+yi<-c(10,13,15,10)
+xbar<-mean(xi)
+ybar<-mean(yi)
+xi-xbar
+yi-ybar
+(xi-xbar)^2
+(yi-ybar)^2
+sum((xi-xbar)^2)
+sum((yi-ybar)^2)
+(sum((xi-xbar)^2)+sum((yi-ybar)^2))/(7)
+sp<-(sum((xi-xbar)^2)+sum((yi-ybar)^2))/(7)
+sqrt(sp/5+sp/4)
+se<-sqrt(sp/5+sp/4)
+(xbar-ybar)/se
+qt(p=0.995,df=7)
+library(swilr)
+library(swirl)
+swirl()
+rgp1()
+rgp2()
+head(swiss)
+mdl<-lm(Fertility~.,swiss)
+vif(mdl)
+mdl2<-lm(Fertility~.-Examination,swiss)
+vif(mdl2)
+library(swirl)
+swirl()
+x1c<-simbias()
+apply(x1c, 1, mean)
+fit1<-lm(Fertility~Agriculture,swiss)
+fit3<-lm(Fertility~Agriculture+Examination+Education,swiss)
+anova(fit1, fit3)
+deviance(fit3)
+d=deviance(fit3)/43
+d<-deviance(fit3)/43
+n<-(deviance(fit1)-deviance(fit3))/2
+n/d
+pf(n/d, 2, 43, lower.tail=FALSE)
+shapiro.test(fit3$residuals)
+anova(fit1, fit3, fit5, fit6)
+ravenData
+mdl<-glm(ravenWinNum ~ ravenScore,family, ravenData)
+mdl<-glm(ravenWinNum ~ ravenScore,binomial, ravenData)
+lodds<-predict(mdl,data.frame(ravenScore=c(0,3,6)))
+exp(lodds)/(1+exp(lodds))
+summary(mdl)
+1
+exp(confint(mdl))
+anova(mdl)
+qchisq(0.95, 1)
+var(rpois(1000, 50))
+nxt()
+head(hits)
+class(hits[,'date'])
+as.integer(head(hits[,'date']))
+mdl <- glm(visits ~ date, poisson, hits)
+summary(mdl)
+exp(confint(mdl, 'date'))
+which.max(hits[,'visits'])
+hits[704,]
+lambda<-mdl$fitted.values[704]
+qpois(.95, lambda)
+mdl2<-glm(offset=log(visits+1))
+1
+mdl2 <- glm(formula = simplystats ~ date, family = poisson, data = hits, offset = log(visits + 1))
+qpois(.95, mdl2$fitted.values[704])
+data('MASS')
+data(shuttle)
+data('shuttle')
+library(MAss)
+library('MASS')
+data(shuttle)
+head(shuttle)
+fit1<-glm(use~wind,data=shuttle,family='binomial')
+exp(fit1$coeff)
+fit1$coeff
+fit1
+summary(fit1)
+fit2<-glm(wind~use,data=shuttle,family='binomial')
+exp(fit2$coeff)
+head(shuttle)
+fit3<-glm(use~magn,data=shuttle,family='binomial')
+exp(fit3$coeff)
+fit3<-glm(use~wind+magn,data=shuttle,family='binomial')
+exp(fit3$coeff)
+fit3<-glm(magn~wind,data=shuttle,family='binomial')
+exp(fit3$coeff)
+data(𝙸𝚗𝚜𝚎𝚌𝚝𝚂𝚙𝚛𝚊𝚢𝚜)
+data(InsectSprays)
+head(InsectSprays)
+fit4 <- glm(count ~ spray, poisson, InsectSprays)
+fit4
+2.67415/0.05588
+0.05588/2.67415
+fit4 <- glm(spray~count, poisson, InsectSprays)
+fit4 <- glm(count ~ spray, poisson, InsectSprays)
+fit3<-glm(use~wind+magn,data=shuttle,family='binomial')
+fit1
+shuttle$auto <- 1 * (shuttle$use == "auto")#
+shuttle$headwind <- 1 * (shuttle$wind == "head")#
+fit <- glm(auto ~ headwind, data = shuttle, family = binomial)#
+exp(coef(fit))#
+## Another way without redifing variables#
+fit <- glm(relevel(use, "noauto") ~ relevel(wind, "tail"), data = shuttle, family = binomial)#
+exp(coef(fit))
+fit
+fit <- glm(count ~ relevel(spray, "B"), data = InsectSprays, family = poisson)#
+exp(coef(fit))[2]
+exp(coef(fit))
+data('mtcars')
+head('mtcars')
+head(mtcars)
+summary(mtcars)
+str(mtcars)
+?mtcars
+library(ggplot2)#
+setwd('/Users/freefrog/Studing/DataScience/gitrepo/RM_W4_finalproject')#
+rm(list = ls())
+df<-mtcars
+head(df)
+g<-ggplot(df,aes(mpg,am))
+g
+g+geom_line()
+g+geom_point()
+xlab("Miles/(US) gallon") +#
+  ylab("Transmission") +#
+  ggtitle("Relationship between MPG and Transmission")
+g+xlab("Miles/(US) gallon") +#
++   ylab("Transmission") +#
++   ggtitle("Relationship between MPG and Transmission")
+g+xlab("Miles/(US) gallon") +ylab("Transmission") +ggtitle("Relationship between MPG and Transmission")
+g+geom_point()+xlab("Miles/(US) gallon") +ylab("Transmission") +ggtitle("Relationship between MPG and Transmission")
+df<-mtcars#
+g<-ggplot(df,aes(mpg,am))#
+g+geom_point()+xlab("Miles/(US) gallon")
+df<-mtcars#
+g<-ggplot(df,aes(mpg,am))#
+g+geom_point()+ylab("Miles/(US) gallon")
+g+geom_point()+xlab("Miles/(US) gallon") +ylab("Transmission") +ggtitle("Relationship between MPG and Transmission")
+png(filename = "plot1.png", width = 960, height = 480)#
+g<-ggplot(df,aes(mpg,am))#
+g+geom_point()+xlab("Miles/(US) gallon") +ylab("Transmission") +ggtitle("Relationship between MPG and Transmission")#
+dev.off()
+png(filename = "plot1.png", width = 560, height = 480)#
+g<-ggplot(df,aes(mpg,am))#
+g+geom_point()+xlab("Miles/(US) gallon") +ylab("Transmission") +ggtitle("Relationship between MPG and Transmission")#
+dev.off()
+png(filename = "plot1.png", width = 560, height = 480)#
+g<-ggplot(df,aes(am,mpg))#
+g+geom_point()+xlab("Transmission") +ylab("Miles/(US) gallon") +ggtitle("Relationship between MPG and Transmission")#
+dev.off()
+?ggplot2
+png(filename = "plot1.png", width = 560, height = 480)#
+g<-ggplot(df,aes(am,mpg))#
+g+geom_boxplot()+xlab("Transmission") +ylab("Miles/(US) gallon") +ggtitle("Relationship between MPG and Transmission")#
+dev.off()
+png(filename = "plot1.png", width = 560, height = 480)#
+g<-ggplot(df,aes(am,mpg))#
+g+geom_boxplot(aes(fill=Organ_type))+xlab("Transmission") +ylab("Miles/(US) gallon") +ggtitle("Relationship between MPG and Transmission")#
+dev.off()
+?geom_boxplot
+g<-ggplot(df,aes(am,mpg))
+g+geom_boxplot()
+g+geom_point()
+g+geom_point(aes(group=am))
+g+geom_boxplot(aes(group=am))
+g+geom_boxplot(aes(am))
+g+geom_boxplot(aes(group=am))
+g+geom_boxplot(aes(group=am),fill= 'red')
+g+geom_boxplot(aes(group=am),fill= 'blue')
+g+geom_boxplot(aes(group=am),fill= Organ_type)
+g+geom_boxplot(aes(group=am),colour = "#3366FF")
+png(filename = "plot1.png", width = 560, height = 480)#
+g<-ggplot(df,aes(am,mpg))#
+g+geom_boxplot(aes(group=am),colour = "#3366FF")+xlab("Transmission") +ylab("Miles/(US) gallon") +ggtitle("Relationship between MPG and Transmission")#
+dev.off()
+df<-mtcars#
+png(filename = "plot1.png", width = 560, height = 480)#
+g<-ggplot(df,aes(am,mpg))#
+g+geom_boxplot(aes(group=am),colour = "#3366FF")+xlab("Transmission") +ylab("Miles/(US) gallon") +ggtitle("Figure-1: Relationship between MPG and Transmissio
+df<-mtcars#
+png(filename = "plot1.png", width = 560, height = 480)#
+g<-ggplot(df,aes(am,mpg))#
+g+geom_boxplot(aes(group=am),colour = "#3366FF")+xlab("Transmission") +ylab("Miles/(US) gallon") +ggtitle("Figure-1: Relationship between MPG and Transmission")#
+dev.off()
+?ggtitle
+lm(am~mpg,data=df)
+plot(am,mpg,data=df)
+plot(df$am,df$mpg,data=df)
+plot(df$am,df$mpg,dataframe=df)
+plot(x=df$am,y=df$mpg,dataframe=df)
+plot(x=df$am,y=df$mpg,data=df)
+with(df,plot(df$am,df$mpg))
+lm(am~mpg,data=df)
+model<-lm(am~mpg,data=df)
+abline(model, lwd = 1, col = "skyblue2")
+abline(model, lwd = 1, col = "skyblue2")
+model<-lm(mpg~am,data=df)
+abline(model, lwd = 1, col = "skyblue2")
+with(df,plot(df$mpg,df$am))
+abline(model, lwd = 1, col = "skyblue2")
+with(df,plot(df$mpg,df$am))
+dev.off()
+with(df,plot(df$mpg,df$am))
+abline(model, lwd = 1, col = "skyblue2")
+model<-lm(am~mpg,data=df)
+abline(model, lwd = 1, col = "skyblue2")
+png(filename = "plot2.png", width = 560, height = 480)#
+with(df,plot(df$mpg,df$am),xlab="Miles/(US) gallon",ylab="Transmission",title='liner regression')#
+model<-lm(am~mpg,data=df)#
+abline(model, lwd = 1, col = "skyblue2")#
+dev.off()
+png(filename = "plot2.png", width = 560, height = 480)#
+with(df,plot(df$mpg,df$am),xlab="Miles/(US) gallon",ylab="Transmission",title='Figure-2 liner regression')#
+model<-lm(am~mpg,data=df)#
+abline(model, lwd = 1, col = "skyblue2")#
+dev.off()
+png(filename = "plot2.png", width = 560, height = 480)#
+with(df, plot(df$mpg,df$am, xlab = "Miles/(US) gallon", ylab = "Transmission", main = 'Figure-2 liner regression'))#
+model<-lm(am~mpg,data=df)#
+abline(model, lwd = 1, col = "skyblue2")#
+dev.off()
+with(df, plot(df$mpg,df$am, xlab = "Miles/(US) gallon", ylab = "Transmission", main = 'Figure-3 logistic regression'))#
+mdl<-glm(am~mpg,binomial,data=df)#
+abline(mdl, lwd = 1, col = "skyblue2")
+with(df, plot(df$mpg,df$am, xlab = "Miles/(US) gallon", ylab = "Transmission", main = 'Figure-3 logistic regression'))#
+mdl<-glm(mpg~am,binomial,data=df)#
+abline(mdl, lwd = 1, col = "skyblue2")
+with(df, plot(df$mpg,df$am, xlab = "Miles/(US) gallon", ylab = "Transmission", main = 'Figure-3 logistic regression'))#
+mdl<-glm(am~mpg,binomial,data=df)#
+abline(mdl, lwd = 1, col = "skyblue2")
+with(df, plot(df$mpg,df$am, xlab = "Miles/(US) gallon", ylab = "Transmission", main = 'Figure-4 poission regression'))#
+mdl1<-glm(am~mpg,poission,data=df)#
+abline(mdl1, lwd = 1, col = "skyblue2")
+with(df, plot(df$mpg,df$am, xlab = "Miles/(US) gallon", ylab = "Transmission", main = 'Figure-4 poisson regression'))#
+mdl1<-glm(am~mpg,poisson,data=df)#
+abline(mdl1, lwd = 1, col = "skyblue2")
+png(filename = "plot3.png", width = 560, height = 480)#
+with(df, plot(df$mpg,df$am, xlab = "Miles/(US) gallon", ylab = "Transmission", main = 'Figure-3 logistic regression'))#
+mdl<-glm(am~mpg,binomial,data=df)#
+abline(mdl, lwd = 1, col = "skyblue2")#
+dev.off()
+png(filename = "plot4.png", width = 560, height = 480)#
+with(df, plot(df$mpg,df$am, xlab = "Miles/(US) gallon", ylab = "Transmission", main = 'Figure-4 poisson regression'))#
+mdl1<-glm(am~mpg,poisson,data=df)#
+abline(mdl1, lwd = 1, col = "skyblue2")#
+dev.off()
+summary(mdl)
+mdl$coeff
+mdl$coeff[1]
+mdl$coeff[2]
+exp(mdl$coeff[1])
+exp(mdl$coeff[2])
+?qt
