@@ -11,37 +11,52 @@ This report exploring the relationship between miles per gallon (MPG) and transs
 * "Quantify the MPG difference between automatic and manual transmissions"
 
 ## Data Exploration
-Load data.
 ```{r}
 library(ggplot2)
 data('mtcars')
 ```
-There are 11 variables. We only care about mpg and am, which stand for Miles/(US) gallon and Transmission (0=automatic, 1=manual), we can make a boxplot(Apendix-1) to see the difference.
+There are 11 variables including mpg and am, which stand for Miles/(US) gallon and Transmission (0=automatic, 1=manual), we can make a boxplot(Apendix-1) to find out the difference between those two types of transmission in mpg.
 ```{r}
+mtcars$am <- as.factor(mtcars$am)
+mtcars$cyl <- as.factor(mtcars$cyl)
+mtcars$vs <- as.factor(mtcars$vs)
+mtcars$gear <- as.factor(mtcars$gear)
+mtcars$carb <- as.factor(mtcars$carb)
 df<-mtcars
-df$am <- as.factor(df$am)
-g<-ggplot(df,aes(am,mpg))
-g+geom_boxplot(aes(group=am),colour = "#3366FF")+xlab("Transmission") +ylab("Miles/(US) gallon") +ggtitle("MPG difference between auto and maunal Transmission")
+mean_difference <- mean(df$mpg[which(df$am==1)])-mean(df$mpg[which(df$am==0)])
 ```
-It seems that manual transmissionis have higher mpg than automatic transmissions.
+It seems that manual transmissionis have higher mpg(`r mean_difference`) than automatic transmissions.
 
 ## Regression Analysis
 ```{r}
-model1 <- lm(mpg ~ am -1, df)
-model2 <- lm(mpg ~ wt + am -1, df)
-model3 <- lm(mpg ~ wt + qsec + am -1, df)
-model4 <- lm(mpg ~ wt + qsec + cyl + am -1, df)
-anova(model1, model2, model3, model4)
+model1 <- lm(mpg ~ am, df)
+## Multiple R-squared:  0.3598
 ```
-We create 4 diffrent models, model 1~4, of which model 1 is the basic model with mpg as a function of am. we add wt, qsec, cyl, into model 2, 3, 4. anova shows that adding wt, qsec is very signicant however adding cyl(and others) is not. so we choose model 3, let's see the following coefficients:
+Model 1 is Single Variable Linear Regression Model. The observed r-squared error show that variable am can only explain 35.98% of variance in mpg.
 ```{r}
-coef <- summary(model3)$coef
-coef
+model2 <- lm(mpg ~ wt + hp + cyl + am , df)
+## Multiple R-squared:  0.8659
 ```
+Model 2 is a Multivariate Linear Regression Model. The observed r-squared error show that multi-variables can explain 86.59% of variance in mpg. It also concluded that on average, Manual Transmissions have 1.5 more mpg than Automatic Transmission.
+```{r}
+anova(model1,model2)
+```
+Since the p-value is much less than .05 we cannot reject the null hypothesis and conclude that we should use model 2 when estimating the effect of am on mpg.
 
 ## Conclusion
 “Is an automatic or manual transmission better for MPG?”   
-We cannot answer the question cause there are other significant vriables affect the mpg beside transmission.
+We cannot answer this question cause the Residuals vs Leverage plot is not linear, even the Q-Q plot show that the sample is not normal distribute (Apendix). So there are other factors affect the mpg beside transmission.
 
 "Quantify the MPG difference between automatic and manual transmissions"   
-Taking into account qsec and wt, the diffence in mpg between an automatic and a manual is only 2.5 mpg.
+Taking into account hp, wt and cyl, the diffence in mpg between an automatic and a manual is only 1.5 mpg.
+
+## Apendix
+### Boxplot of mpg vs am
+```{r}
+g<-ggplot(df,aes(am,mpg))
+g+geom_boxplot(aes(group=am),colour = "#3366FF")+xlab("Transmission") +ylab("Miles/(US) gallon") +ggtitle("MPG difference between auto and maunal Transmission")
+```
+
+```{r}
+plot(model2)
+```
